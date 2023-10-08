@@ -1,0 +1,116 @@
+<!-- navbar -->
+<nav class="navbar bg-success">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="#">
+      <img src="https://media.tenor.com/yQPfHp6AmGgAAAAC/money-with-wings-joypixels.gif" alt="Logo" width="30"
+        height="24" class="d-inline-block align-text-top">
+      CSB
+    </a>
+  </div>
+</nav>
+<!-- Register landing page -->
+<div *ngIf="RegisterSuccess" class="container text-center mt-5">
+  <h3>Your Data Getting Registered...Please Wait...
+    <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </h3>
+</div>
+<!--  Register form -->
+<div *ngIf="!RegisterSuccess" class="container">
+  <div class="row">
+    <div class="col-6">
+      <!-- image -->
+      <img class="m-3" width="100%" height="500px"
+        src="https://cdni.iconscout.com/illustration-pack/preview/online-banking-and-registration-online-172949.jpg"
+        alt="">
+    </div>
+    <div class="col-6 mb-3">
+      <!-- Register-form -->
+      <form (ngSubmit)="register()" [formGroup]="registerForm" class="mt-5 border px-5 mx-3 rounded shadow">
+        <h3 class="text-success text-center my-3">Register Here</h3>
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form1Example1">Account Number</label>
+          <input name="acno" formControlName="acno" type="text" id="form1Example1" class="form-control" />
+          <div *ngIf="this.registerForm.get('acno')?.errors&&this.registerForm.get('acno')?.touched"
+            class="text-danger">*Invalid Account Number</div>
+        </div>
+        <!-- User Name input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form1Example1">User Name</label>
+          <input name="username" formControlName="username" type="text" id="form1Example1" class="form-control" />
+          <div *ngIf="this.registerForm.get('username')?.errors&&this.registerForm.get('username')?.touched"
+            class="text-danger">*Invalid Username</div>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form1Example2">Password</label>
+          <input name="password" formControlName="password" type="password" id="form1Example2" class="form-control" />
+          <div *ngIf="this.registerForm.get('password')?.errors&&this.registerForm.get('password')?.touched"
+            class="text-danger">*Invalid Password</div>
+
+        </div>
+
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4">
+          <div class="col d-flex">
+            <!-- Checkbox -->
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+              <label class="form-check-label" for="form1Example3"> Remember me </label>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <h6 class="text-danger">{{RegisterError}}</h6>
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-success btn-block mb-2">Sign up</button>
+          <p>Already have an Account? <a routerLink=""> Please Login </a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- footer -->
+<footer class="bg-success text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button"><i
+          class="fab fa-facebook-f"></i></a>
+
+      <!-- Twitter -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="#!" role="button"><i
+          class="fab fa-twitter"></i></a>
+
+      <!-- Google -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #dd4b39;" href="#!" role="button"><i
+          class="fab fa-google"></i></a>
+
+      <!-- Instagram -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="#!" role="button"><i
+          class="fab fa-instagram"></i></a>
+
+      <!-- Linkedin -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="#!" role="button"><i
+          class="fab fa-linkedin-in"></i></a>
+      <!-- Github -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #333333;" href="#!" role="button"><i
+          class="fab fa-github"></i></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright:
+    <a class="text-white" href="#">csb.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>

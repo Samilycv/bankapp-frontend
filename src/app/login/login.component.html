@@ -1,0 +1,104 @@
+<!-- navbar -->
+<nav class="navbar bg-success">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="#">
+      <img src="https://media.tenor.com/yQPfHp6AmGgAAAAC/money-with-wings-joypixels.gif" alt="Logo" width="30"
+        height="24" class="d-inline-block align-text-top">
+      CSB
+    </a>
+  </div>
+</nav>
+<!--  login form -->
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <!-- image -->
+      <img class="m-3 me-5" width="500px" height="500px"
+    src="https://img.freepik.com/premium-vector/flat-bitcoin-design-illustration-pack-with-character_190190-1.jpg"
+        alt="">
+    </div>
+    <div class="col-6 mb-3">
+      <!-- login-form -->
+      <form (ngSubmit)="login()" [formGroup]="loginForm" class="mt-5 border px-5 mx-3 rounded shadow">
+        <h3 class="text-success text-center my-3">Login Here</h3>
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form1Example1">Account Number</label>
+          <input name="acno" formControlName="acno" type="text" id="form1Example1" class="form-control" />
+          <div *ngIf="this.loginForm.get('acno')?.errors&&this.loginForm.get('acno')?.touched" class="text-danger">*Invalid Account Number</div>
+
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form1Example2">Password</label>
+          <input name="password" formControlName="password" type="password" id="form1Example2" class="form-control" />
+          <div *ngIf="this.loginForm.get('password')?.errors&&this.loginForm.get('password')?.touched" class="text-danger">*Invalid Password</div>
+
+        </div>
+
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4">
+          <div class="col d-flex">
+            <!-- Checkbox -->
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+              <label class="form-check-label" for="form1Example3"> Remember me </label>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <h6 class="text-danger">{{loginError}}</h6>
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-success btn-block mb-2">Sign in
+            <div *ngIf="loginSuccess" class="spinner-border text-light" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </button>
+          <p>New to here? <a routerLink="register"> Please Register </a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- footer -->
+<footer class="bg-success text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button"><i
+          class="fab fa-facebook-f"></i></a>
+
+      <!-- Twitter -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="#!" role="button"><i
+          class="fab fa-twitter"></i></a>
+
+      <!-- Google -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #dd4b39;" href="#!" role="button"><i
+          class="fab fa-google"></i></a>
+
+      <!-- Instagram -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="#!" role="button"><i
+          class="fab fa-instagram"></i></a>
+
+      <!-- Linkedin -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="#!" role="button"><i
+          class="fab fa-linkedin-in"></i></a>
+      <!-- Github -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #333333;" href="#!" role="button"><i
+          class="fab fa-github"></i></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright:
+    <a class="text-white" href="#">csb.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
